@@ -1,21 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" class="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
-  <title>Relia â€” Messagerie d'Entreprise SÃ©curisÃ©e Â· Afrique Centrale</title>
+  <title>Relia — Messagerie d'Entreprise Sécurisée · Afrique Centrale</title>
   
-  <meta name="description" content="Relia est la plateforme collaborative tout-en-un pour les entreprises d'Afrique centrale : messagerie chiffrÃ©e, appels vidÃ©o HD, partage de documents et paiement direct par Mobile Money. Version 3.23.0."/>
-  <meta name="keywords" content="Relia, messagerie entreprise, collaboration, Afrique centrale, Gabon, Cameroun, Congo, Mobile Money, Airtel Money, Moov Money, visioconfÃ©rence sÃ©curisÃ©e, ISO 27001"/>
+  <meta name="description" content="Relia est la plateforme collaborative tout-en-un pour les entreprises d'Afrique centrale : messagerie chiffrée, appels vidéo HD, partage de documents et paiement direct par Mobile Money. Version 3.23.0."/>
+  <meta name="keywords" content="Relia, messagerie entreprise, collaboration, Afrique centrale, Gabon, Cameroun, Congo, Mobile Money, Airtel Money, Moov Money, visioconférence sécurisée, ISO 27001"/>
   <meta name="author" content="Sylvestre IT"/>
   
-  <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Relia â€” La Messagerie d'Entreprise Souveraine"/>
-  <meta property="og:description" content="Canaux d'Ã©quipe, rÃ©unions vidÃ©o HD, partage de fichiers volumineux, sÃ©curitÃ© bancaire et paiement Mobile Money local. TÃ©lÃ©chargez la version 3.23.0."/>
-  <meta property="og:image" content="https://raw.githubusercontent.com/obinnasylvestre/relia-downloads/main/preview.png"/>
+  <meta property="og:title" content="Relia — La Messagerie d'Entreprise Souveraine"/>
+  <meta property="og:description" content="Canaux d'équipe, réunions vidéo HD, partage de fichiers volumineux, sécurité bancaire et paiement Mobile Money local. Téléchargez la version 3.23.0."/>
   
-  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2300E5FF'/><stop offset='100%25' stop-color='%230077FE'/></linearGradient></defs><rect width='40' height='40' rx='10' fill='url(%23g)'/><path d='M12 20a8 8 0 1 1 15 4.5l2 4.5-5-1.5A8 8 0 0 1 12 20z' fill='%23070B14'/><circle cx='17' cy='19' r='1.5' fill='%2300E5FF'/><circle cx='21' cy='19' r='1.5' fill='%2300E5FF'/><circle cx='25' cy='19' r='1.5' fill='%2300E5FF'/></svg>"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,24 +39,20 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow-glow: 0 0 35px rgba(0, 229, 255, 0.18);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; min-height: 100vh; }
 
-    /* Animated Canvas Background */
-    #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.45; }
+    #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.65; }
     .layout-wrapper { position: relative; z-index: 1; }
 
-    /* Navigation */
     header.site-header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(7, 11, 20, 0.85);
+      background: rgba(7, 11, 20, 0.88);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
     }
     .nav-container {
       max-width: 1240px; margin: 0 auto; padding: 0 24px;
@@ -97,7 +90,6 @@
       transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5); filter: brightness(1.1);
     }
 
-    /* Burger Menu Mobile */
     .burger-btn {
       display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 24px; padding: 4px;
     }
@@ -113,7 +105,6 @@
     }
     .mobile-drawer a:hover { background: rgba(0, 229, 255, 0.08); border-left-color: var(--cyan); color: var(--cyan); }
 
-    /* Hero Section */
     .hero-section {
       padding: 70px 24px 60px; max-width: 1240px; margin: 0 auto;
       display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center;
@@ -174,10 +165,7 @@
     }
     .trust-item strong { color: var(--text); display: block; font-size: 0.95rem; }
 
-    /* Interactive Mockup Window */
-    .mockup-wrapper {
-      position: relative; perspective: 1000px;
-    }
+    .mockup-wrapper { position: relative; }
     .mockup-window {
       background: #0B111E; border: 1px solid var(--border);
       border-radius: var(--radius-lg); overflow: hidden;
@@ -235,7 +223,6 @@
       margin-top: auto;
     }
 
-    /* What's New Bar (v3.23.0 Highlight) */
     .whats-new-section {
       max-width: 1240px; margin: 0 auto 60px; padding: 0 24px;
     }
@@ -271,7 +258,6 @@
     .wn-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .wn-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; }
 
-    /* Section Headers */
     .section-wrap { padding: 80px 24px; position: relative; }
     .section-wrap.alt { background: #0A0F1B; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
     .container { max-width: 1240px; margin: 0 auto; }
@@ -287,7 +273,6 @@
       font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;
     }
 
-    /* DOWNLOAD SECTION - HIGH IMPACT */
     .download-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
     }
@@ -339,9 +324,7 @@
     }
     .dl-notice strong { color: var(--text-muted); }
 
-    .dl-box.disabled {
-      opacity: 0.7; border-style: dashed;
-    }
+    .dl-box.disabled { opacity: 0.7; border-style: dashed; }
     .btn-download-ghost {
       background: rgba(255, 255, 255, 0.05); color: var(--text-muted); font-weight: 700; font-size: 0.95rem;
       padding: 14px 24px; border-radius: 12px; text-decoration: none;
@@ -352,10 +335,7 @@
       border-color: var(--cyan); color: var(--cyan); background: rgba(0, 229, 255, 0.08);
     }
 
-    /* FEATURES GRID */
-    .feat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
-    }
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .feat-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md); padding: 28px; transition: all 0.25s ease;
@@ -379,7 +359,6 @@
     }
     .feat-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* PRICING */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 30px; }
     .pricing-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
@@ -409,10 +388,7 @@
     .p-btn-fill { background: var(--cyan); color: #030816; box-shadow: 0 4px 18px rgba(0, 229, 255, 0.3); }
     .p-btn-fill:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
-    /* HOW IT WORKS */
-    .steps-container {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
-    }
+    .steps-container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px; }
     .step-item {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md); padding: 22px 18px; text-align: center; position: relative;
@@ -425,7 +401,6 @@
     .step-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
     .step-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; }
 
-    /* PAYMENT METHODS */
     .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
     .pay-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
@@ -443,7 +418,6 @@
     }
     .pay-badge span { display: block; font-size: 0.72rem; color: var(--text-dim); font-weight: 400; }
 
-    /* FAQ & ASSISTANCE */
     .support-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; }
     .contact-card-box {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
@@ -471,7 +445,6 @@
     .faq-arrow { transition: transform 0.2s ease; font-size: 0.8rem; color: var(--cyan); }
     .faq-card.open .faq-arrow { transform: rotate(180deg); }
 
-    /* FORM */
     .form-box {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg); padding: 36px; max-width: 680px; margin: 0 auto;
@@ -493,7 +466,6 @@
     }
     .f-btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4); }
 
-    /* FOOTER */
     footer.site-footer {
       background: #04070E; border-top: 1px solid var(--border-subtle); padding: 40px 24px;
     }
@@ -504,7 +476,6 @@
     .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
     .footer-links a:hover { color: var(--cyan); }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-section { grid-template-columns: 1fr; gap: 40px; }
       .download-grid, .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
@@ -525,24 +496,22 @@
 </head>
 <body>
 
-  <!-- Dynamic Network Canvas -->
   <canvas id="bg-canvas"></canvas>
 
   <div class="layout-wrapper">
 
-    <!-- HEADER / NAVIGATION -->
     <header class="site-header">
       <div class="nav-container">
         <a href="#" class="brand-logo">
-          <div class="brand-icon">ðŸ’¬</div>
+          <div class="brand-icon">💬</div>
           <span>Relia</span>
           <span class="brand-tag">v3.23.0</span>
         </a>
 
         <ul class="nav-menu">
-          <li><a href="#nouveautes">NouveautÃ©s</a></li>
+          <li><a href="#nouveautes">Nouveautés</a></li>
           <li><a href="#fonctions">Fonctions</a></li>
-          <li><a href="#telecharger">TÃ©lÃ©charger</a></li>
+          <li><a href="#telecharger">Télécharger</a></li>
           <li><a href="#abonnements">Abonnements</a></li>
           <li><a href="#paiement">Paiement</a></li>
           <li><a href="#assistance">Assistance</a></li>
@@ -553,43 +522,41 @@
             <span>Demander un devis</span>
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu Mobile">â˜°</button>
+          <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu Mobile">☰</button>
         </div>
       </div>
 
-      <!-- Mobile Dropdown Drawer -->
       <div class="mobile-drawer" id="mobile-drawer">
-        <a href="#nouveautes" onclick="toggleMenu()">âœ¨ NouveautÃ©s v3.23</a>
-        <a href="#fonctions" onclick="toggleMenu()">ðŸ› ï¸ Fonctions</a>
-        <a href="#telecharger" onclick="toggleMenu()">ðŸ“¥ TÃ©lÃ©charger l'App</a>
-        <a href="#abonnements" onclick="toggleMenu()">ðŸ’¼ Abonnements & Tarifs</a>
-        <a href="#paiement" onclick="toggleMenu()">ðŸ’³ Paiement Mobile Money</a>
-        <a href="#assistance" onclick="toggleMenu()">ðŸ“ž Assistance & FAQ</a>
-        <a href="#contact" onclick="toggleMenu()" style="color:var(--cyan);font-weight:700">ðŸ’¬ Contact direct WhatsApp</a>
+        <a href="#nouveautes" onclick="toggleMenu()">✨ Nouveautés v3.23</a>
+        <a href="#fonctions" onclick="toggleMenu()">🛠️ Fonctions</a>
+        <a href="#telecharger" onclick="toggleMenu()">📥 Télécharger l'App</a>
+        <a href="#abonnements" onclick="toggleMenu()">💼 Abonnements & Tarifs</a>
+        <a href="#paiement" onclick="toggleMenu()">💳 Paiement Mobile Money</a>
+        <a href="#assistance" onclick="toggleMenu()">📞 Assistance & FAQ</a>
+        <a href="#contact" onclick="toggleMenu()" style="color:var(--cyan);font-weight:700">💬 Contact direct WhatsApp</a>
       </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero-section">
       <div class="hero-left">
         <div class="badge-pill">
           <div class="badge-live"></div>
-          <span>Mise Ã  jour v3.23.0 disponible Â· Novembre 2026</span>
+          <span>Mise à jour v3.23.0 disponible · Novembre 2026</span>
         </div>
 
         <h1 class="hero-title">
           La messagerie d'entreprise <br/>
-          <span class="highlight">pensÃ©e pour vos Ã©quipes</span>
+          <span class="highlight">pensée pour vos équipes</span>
         </h1>
 
         <p class="hero-subtitle">
-          Canaux d'Ã©quipe, discussions privÃ©es, rÃ©unions vidÃ©o HD et partage de gros fichiers dans un espace 100% sÃ©curisÃ© et souverain. Licences flexibles et paiement direct par <strong>Mobile Money</strong>.
+          Canaux d'équipe, discussions privées, réunions vidéo HD et partage de gros fichiers dans un espace 100% sécurisé et souverain. Licences flexibles et paiement direct par <strong>Mobile Money</strong>.
         </p>
 
         <div class="hero-cta-group">
           <a href="#telecharger" class="btn-hero-primary">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span>TÃ©lÃ©charger Relia</span>
+            <span>Télécharger Relia</span>
           </a>
           <a href="#abonnements" class="btn-hero-secondary">
             <span>Voir les forfaits</span>
@@ -598,21 +565,20 @@
 
         <div class="hero-trust-badges">
           <div class="trust-item">
-            <span style="font-size:22px">ðŸ–¥ï¸</span>
-            <div><strong>Windows 10 / 11</strong>.exe certifiÃ©</div>
+            <span style="font-size:22px">🖥️</span>
+            <div><strong>Windows 10 / 11</strong>.exe certifié</div>
           </div>
           <div class="trust-item">
-            <span style="font-size:22px">ðŸ“±</span>
-            <div><strong>Android</strong>TÃ©lÃ©phones & Tablettes</div>
+            <span style="font-size:22px">📱</span>
+            <div><strong>Android</strong>Téléphones & Tablettes</div>
           </div>
           <div class="trust-item">
-            <span style="font-size:22px">ðŸ’³</span>
+            <span style="font-size:22px">💳</span>
             <div><strong>Mobile Money</strong>Airtel & Moov</div>
           </div>
         </div>
       </div>
 
-      <!-- Right Column : Realistic Animated Window -->
       <div class="mockup-wrapper">
         <div class="mockup-window">
           <div class="mockup-header">
@@ -621,20 +587,20 @@
               <span class="w-dot w-yellow"></span>
               <span class="w-dot w-green"></span>
             </div>
-            <div class="mock-title">Relia Entreprise Â· #gÃ©nÃ©ral</div>
+            <div class="mock-title">Relia Entreprise · #général</div>
             <div class="mock-badge-status">En ligne</div>
           </div>
 
           <div class="mockup-grid">
             <div class="mock-sidebar">
               <div class="mock-sec">Canaux</div>
-              <div class="mock-chan active"># gÃ©nÃ©ral</div>
+              <div class="mock-chan active"># général</div>
               <div class="mock-chan"># direction</div>
-              <div class="mock-chan"># comptabilitÃ©</div>
+              <div class="mock-chan"># comptabilité</div>
               <div class="mock-chan"># projets-2026</div>
               <div class="mock-sec">Directs</div>
-              <div class="mock-chan">â— Jules (Admin)</div>
-              <div class="mock-chan">â— Sandra</div>
+              <div class="mock-chan">● Jules (Admin)</div>
+              <div class="mock-chan">● Sandra</div>
             </div>
 
             <div class="mock-chat">
@@ -642,27 +608,27 @@
                 <div class="chat-avatar" style="background:#10B981;color:#042F2E">JD</div>
                 <div class="chat-bubble">
                   <strong>Jules D.</strong><br/>
-                  Bonjour Ã  tous ! La rÃ©union budgÃ©taire commence dans 5 minutes.
+                  Bonjour à tous ! La réunion budgétaire commence dans 5 minutes.
                 </div>
               </div>
 
               <div class="chat-msg" style="flex-direction:row-reverse">
                 <div class="chat-avatar" style="background:var(--cyan);color:#082F49">VOUS</div>
                 <div class="chat-bubble mine">
-                  Parfait, voici le rapport financier consolidÃ© pour validation :
-                  <div class="chat-scan-badge">ðŸ›¡ï¸ Lien sÃ©curisÃ© & scannÃ© ISO 27001</div>
+                  Parfait, voici le rapport financier consolidé pour validation :
+                  <div class="chat-scan-badge">🛡️ Lien sécurisé & scanné ISO 27001</div>
                 </div>
               </div>
 
               <div class="chat-msg">
                 <div class="chat-avatar" style="background:#8B5CF6;color:#2E1065">SK</div>
                 <div class="chat-bubble">
-                  Bien reÃ§u ! Les chiffres sont impeccables ðŸ‘
+                  Bien reçu ! Les chiffres sont remarquables 👍
                 </div>
               </div>
 
               <div class="mock-call-banner">
-                <span>ðŸ“¹ RÃ©union vidÃ©o en cours (4 participants)</span>
+                <span>📹 Réunion vidéo en cours (4 participants)</span>
                 <span style="font-size:0.75rem;background:var(--cyan);color:#030816;padding:3px 8px;border-radius:6px">Rejoindre</span>
               </div>
             </div>
@@ -671,118 +637,113 @@
       </div>
     </section>
 
-    <!-- NOUVEAUTÃ‰S v3.23.0 -->
     <section class="whats-new-section" id="nouveautes">
       <div class="whats-new-box">
         <div class="wn-header">
           <div class="wn-title">
-            <span>âœ¨ NouveautÃ©s de la Version v3.23.0</span>
-            <span class="wn-badge">DerniÃ¨re mise Ã  jour</span>
+            <span>✨ Nouveautés de la Version v3.23.0</span>
+            <span class="wn-badge">Dernière mise à jour</span>
           </div>
-          <span style="color:var(--text-muted);font-size:0.85rem">DÃ©ploiement stable Novembre 2026</span>
+          <span style="color:var(--text-muted);font-size:0.85rem">Déploiement stable Novembre 2026</span>
         </div>
 
         <div class="wn-grid">
           <div class="wn-card">
-            <div class="wn-icon">ðŸ””</div>
+            <div class="wn-icon">🔔</div>
             <div>
-              <h4>Notifications Push RÃ©elles</h4>
-              <p>Recevez les alertes de messages et d'appels mÃªme lorsque l'application est en veille ou fermÃ©e en arriÃ¨re-plan.</p>
+              <h4>Notifications Push Réelles</h4>
+              <p>Recevez les alertes de messages et d'appels même lorsque l'application est en veille ou fermée en arrière-plan.</p>
             </div>
           </div>
 
           <div class="wn-card">
-            <div class="wn-icon">ðŸ“ž</div>
+            <div class="wn-icon">📞</div>
             <div>
               <h4>Appels WebRTC Ultrarapides</h4>
-              <p>Fin des appels manquÃ©s. DÃ©tection persistante dans la base de donnÃ©es et sonnerie instantanÃ©e des correspondants.</p>
+              <p>Fin des appels manqués. Détection persistante dans la base de données et sonnerie instantanée des correspondants.</p>
             </div>
           </div>
 
           <div class="wn-card">
-            <div class="wn-icon">ðŸ›¡ï¸</div>
+            <div class="wn-icon">🛡️</div>
             <div>
               <h4>Bouclier Anti-Malware SafeLink</h4>
-              <p>Analyse proactive des liens URL et des documents Ã©changÃ©s avant tout clic pour protÃ©ger le parc informatique.</p>
+              <p>Analyse proactive des liens URL et des documents échangés avant tout clic pour protéger le parc informatique.</p>
             </div>
           </div>
 
           <div class="wn-card">
-            <div class="wn-icon">ðŸ”’</div>
+            <div class="wn-icon">🔒</div>
             <div>
               <h4>Cloisonnement ISO 27001</h4>
-              <p>Ã‰tanchÃ©itÃ© totale entre donnÃ©es d'entreprises distinctes et protection rigoureuse des comptes personnels.</p>
+              <p>Étanchéité totale entre données d'entreprises distinctes et protection rigoureuse des comptes personnels.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TÃ‰LÃ‰CHARGEMENT SECTION (CENTRE D'ACTION) -->
     <section class="section-wrap alt" id="telecharger">
       <div class="container">
         <div class="section-head">
-          <span class="section-tag">TÃ©lÃ©chargement Officiel</span>
+          <span class="section-tag">Téléchargement Officiel</span>
           <h2 class="section-heading">Installez Relia en quelques secondes</h2>
-          <p class="section-subtext">TÃ©lÃ©chargez la version native adaptÃ©e Ã  votre Ã©quipement. Vos donnÃ©es sont synchronisÃ©es instantanÃ©ment entre votre PC et votre tÃ©lÃ©phone.</p>
+          <p class="section-subtext">Téléchargez la version native adaptée à votre équipement. Vos données sont synchronisées instantanément entre votre PC et votre téléphone.</p>
         </div>
 
         <div class="download-grid">
-          <!-- Windows Card -->
           <div class="dl-box">
             <div>
-              <div class="dl-icon-circle">ðŸ–¥ï¸</div>
+              <div class="dl-icon-circle">🖥️</div>
               <h3>Windows PC</h3>
               <p>Pour ordinateurs portables et fixes sous Windows 10 et Windows 11 (64-bit).</p>
-              <div class="dl-pill-ver">Version 3.23.0 Â· Setup 90 Mo</div>
+              <div class="dl-pill-ver">Version 3.23.0 · Setup 90 Mo</div>
             </div>
 
             <div>
               <a href="https://github.com/obinnasylvestre/relia-downloads/releases/latest/download/Relia-Setup.exe" class="btn-download-main">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                <span>TÃ©lÃ©charger l'Installateur .exe</span>
+                <span>Télécharger l'Installateur .exe</span>
               </a>
               <div class="dl-notice">
-                <strong>Conseil Windows :</strong> Si l'Ã©cran bleu <em>Windows SmartScreen</em> apparaÃ®t, cliquez sur <em>Â« Informations complÃ©mentaires Â»</em> puis sur <em>Â« ExÃ©cuter quand mÃªme Â»</em>.
+                <strong>Conseil Windows :</strong> Si l'écran bleu <em>Windows SmartScreen</em> apparaît, cliquez sur <em>« Informations complémentaires »</em> puis sur <em>« Exécuter quand même »</em>.
               </div>
             </div>
           </div>
 
-          <!-- Android Card -->
           <div class="dl-box">
             <div>
-              <div class="dl-icon-circle">ðŸ“±</div>
+              <div class="dl-icon-circle">📱</div>
               <h3>Android Mobile</h3>
-              <p>Smartphones et tablettes Android (Samsung, Xiaomi, Tecno, Infinix, etc. Android 8 Ã  15+).</p>
-              <div class="dl-pill-ver">Version 3.23.0 Â· APK 5.1 Mo</div>
+              <p>Smartphones et tablettes Android (Samsung, Xiaomi, Tecno, Infinix, etc. Android 8 à 15+).</p>
+              <div class="dl-pill-ver">Version 3.23.0 · APK 5.1 Mo</div>
             </div>
 
             <div>
               <a href="https://github.com/obinnasylvestre/relia-downloads/releases/latest/download/Relia.apk" class="btn-download-main">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                <span>TÃ©lÃ©charger l'APK Android</span>
+                <span>Télécharger l'APK Android</span>
               </a>
               <div class="dl-notice">
-                <strong>Conseil Android :</strong> Si votre navigateur demande confirmation, appuyez sur <em>Â« TÃ©lÃ©charger quand mÃªme Â»</em> puis ouvrez le fichier pour lancer l'installation.
+                <strong>Conseil Android :</strong> Si votre navigateur demande confirmation, appuyez sur <em>« Télécharger quand même »</em> puis ouvrez le fichier pour lancer l'installation.
               </div>
             </div>
           </div>
 
-          <!-- macOS / iOS -->
           <div class="dl-box disabled">
             <div>
-              <div class="dl-icon-circle" style="filter:grayscale(1);opacity:0.6">ðŸ</div>
+              <div class="dl-icon-circle" style="filter:grayscale(1);opacity:0.6">🍏</div>
               <h3>macOS & iOS</h3>
-              <p>Versions pour MacBook, iMac, iPhone et iPad actuellement en prÃ©paration finale.</p>
-              <div class="dl-pill-ver" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border-color:var(--border-subtle)">BientÃ´t disponible</div>
+              <p>Versions pour MacBook, iMac, iPhone et iPad actuellement en préparation finale.</p>
+              <div class="dl-pill-ver" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border-color:var(--border-subtle)">Bientôt disponible</div>
             </div>
 
             <div>
               <a href="#contact" class="btn-download-ghost">
-                <span>ÃŠtre informÃ© du lancement</span>
+                <span>Être informé du lancement</span>
               </a>
               <div class="dl-notice">
-                Vous pouvez d'ores et dÃ©jÃ  rÃ©server un accÃ¨s anticipÃ© pour votre entreprise via notre formulaire.
+                Vous pouvez d'ores et déjà réserver un accès anticipé pour votre entreprise via notre formulaire.
               </div>
             </div>
           </div>
@@ -790,79 +751,77 @@
       </div>
     </section>
 
-    <!-- FONCTIONNALITÃ‰S COMPLÃˆTES -->
     <section class="section-wrap" id="fonctions">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">Plateforme Collaborative</span>
-          <h2 class="section-heading">Une suite professionnelle taillÃ©e pour la performance</h2>
-          <p class="section-subtext">Tout ce dont votre organisation a besoin pour remplacer les groupes WhatsApp informels par un outil cadrÃ©, sÃ©curisÃ© et valorisant.</p>
+          <h2 class="section-heading">Une suite professionnelle taillée pour la performance</h2>
+          <p class="section-subtext">Tout ce dont votre organisation a besoin pour remplacer les groupes WhatsApp informels par un outil cadré, sécurisé et valorisant.</p>
         </div>
 
         <div class="feat-grid">
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸ¢</div>
-            <h3>Ã‰quipes & Canaux structurÃ©s</h3>
-            <p>SÃ©parez vos projets, vos filiales et vos services dans des canaux publics ou privÃ©s protÃ©gÃ©s.</p>
+            <div class="feat-icon-wrap">🏢</div>
+            <h3>Équipes & Canaux structurés</h3>
+            <p>Séparez vos projets, vos filiales et vos services dans des canaux publics ou privés protégés.</p>
           </div>
 
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸ’¬</div>
-            <h3>Discussions privÃ©es & Fils</h3>
-            <p>Ã‰changez en direct avec vos collÃ¨gues avec statuts de prÃ©sence en ligne et accusÃ©s de rÃ©ception.</p>
+            <div class="feat-icon-wrap">💬</div>
+            <h3>Discussions privées & Fils</h3>
+            <p>Échangez en direct avec vos collègues avec statuts de présence en ligne et accusés de réception.</p>
           </div>
 
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸ“¹</div>
-            <h3>VisioconfÃ©rence & Partage d'Ã©cran</h3>
-            <p>RÃ©unions audio et vidÃ©o HD en 1 clic sans limite de durÃ©e, intÃ©grÃ©es directement aux discussions.</p>
+            <div class="feat-icon-wrap">📹</div>
+            <h3>Visioconférence & Partage d'écran</h3>
+            <p>Réunions audio et vidéo HD en 1 clic sans limite de durée, intégrées directement aux discussions.</p>
           </div>
 
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸ“</div>
+            <div class="feat-icon-wrap">📁</div>
             <h3>Transfert de gros fichiers</h3>
-            <p>Partagez vos PDF, tableurs Excel et dossiers par glisser-dÃ©poser avec des liens sÃ©curisÃ©s Ã  expiration.</p>
+            <p>Partagez vos PDF, tableurs Excel et dossiers par glisser-déposer avec des liens sécurisés à expiration.</p>
           </div>
 
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸ”</div>
-            <h3>Recherche instantanÃ©e Ctrl+K</h3>
-            <p>Retrouvez n'importe quelle dÃ©cision, document ou message en tapant quelques lettres.</p>
+            <div class="feat-icon-wrap">🔍</div>
+            <h3>Recherche instantanée Ctrl+K</h3>
+            <p>Retrouvez n'importe quelle décision, document ou message en tapant quelques lettres.</p>
           </div>
 
           <div class="feat-card">
-            <div class="feat-icon-wrap">ðŸŽ¨</div>
+            <div class="feat-icon-wrap">🎨</div>
             <h3>Personnalisation Marque Blanche</h3>
-            <p>Votre logo, les couleurs officielles de votre entreprise et un fond personnalisÃ© pour vos salariÃ©s.</p>
+            <p>Votre logo, les couleurs officielles de votre entreprise et un fond personnalisé pour vos salariés.</p>
           </div>
 
           <div class="feat-card new-highlight">
-            <div class="feat-icon-wrap">ðŸ””</div>
+            <div class="feat-icon-wrap">🔔</div>
             <h3>Notifications Push <span class="badge-feat-new">Nouveau</span></h3>
-            <p>SystÃ¨me de rÃ©veil en arriÃ¨re-plan sous Android et Windows pour ne jamais manquer une alerte client.</p>
+            <p>Système de réveil en arrière-plan sous Android et Windows pour ne jamais manquer une alerte client.</p>
           </div>
 
           <div class="feat-card new-highlight">
-            <div class="feat-icon-wrap">ðŸ›¡ï¸</div>
+            <div class="feat-icon-wrap">🛡️</div>
             <h3>Protection SafeLink <span class="badge-feat-new">Nouveau</span></h3>
             <p>Filtrage proactif contre le phishing, les faux ordres de virement et les liens malveillants.</p>
           </div>
 
           <div class="feat-card new-highlight">
-            <div class="feat-icon-wrap">ðŸ¤</div>
-            <h3>RÃ©actions & Statuts Pro <span class="badge-feat-new">Nouveau</span></h3>
-            <p>Partagez vos dÃ©placements et disponibilitÃ©s via des statuts 24h avec rÃ©actions d'Ã©quipe.</p>
+            <div class="feat-icon-wrap">🤝</div>
+            <h3>Réactions & Statuts Pro <span class="badge-feat-new">Nouveau</span></h3>
+            <p>Partagez vos déplacements et disponibilités via des statuts 24h avec réactions d'équipe.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABONNEMENTS / FORFAITS -->
     <section class="section-wrap alt" id="abonnements">
       <div class="container">
         <div class="section-head">
-          <span class="section-tag">Tarifs clairs & adaptÃ©s</span>
-          <h2 class="section-heading">Des licences souples, sans engagement bancaire Ã©tranger</h2>
+          <span class="section-tag">Tarifs clairs & adaptés</span>
+          <h2 class="section-heading">Des licences souples, sans engagement bancaire étranger</h2>
           <p class="section-subtext">Payez uniquement pour les membres actifs de votre structure. Ajustez le nombre de comptes selon vos embauches.</p>
         </div>
 
@@ -872,9 +831,9 @@
               <div class="p-plan-name">Starter</div>
               <div class="p-price">Sur Devis</div>
               <ul class="p-features">
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'Ã  10 collaborateurs</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 15 Go de stockage d'Ã©quipe</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Canaux, DM & VisioconfÃ©rence</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'à 10 collaborateurs</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 15 Go de stockage d'équipe</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Canaux, DM & Visioconférence</li>
                 <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Console d'administration</li>
                 <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Assistance technique locale</li>
               </ul>
@@ -883,16 +842,16 @@
           </div>
 
           <div class="pricing-card featured">
-            <div class="pricing-top-pill">â­ RecommandÃ© Entreprise</div>
+            <div class="pricing-top-pill">⭐ Recommandé Entreprise</div>
             <div>
               <div class="p-plan-name">Business Pro</div>
               <div class="p-price">Sur Devis</div>
               <ul class="p-features">
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'Ã  100 collaborateurs</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 150 Go de stockage cloud sÃ©curisÃ©</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> VisioconfÃ©rence illimitÃ©e</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'à 100 collaborateurs</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 150 Go de stockage cloud sécurisé</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Visioconférence illimitée</li>
                 <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Personnalisation du logo & charte</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Support prioritaire WhatsApp & TÃ©lÃ©phone</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Support prioritaire WhatsApp & Téléphone</li>
               </ul>
             </div>
             <a href="#contact" class="p-btn p-btn-fill">Choisir Business Pro</a>
@@ -903,11 +862,11 @@
               <div class="p-plan-name">Entreprise & Groupe</div>
               <div class="p-price">Sur Mesure</div>
               <ul class="p-features">
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> De 100 Ã  1 000+ salariÃ©s</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 1 To de stockage dÃ©diÃ©</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> HÃ©bergement dÃ©diÃ© ou sur mesure</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Audit de sÃ©curitÃ© & SLA garanti</li>
-                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> IngÃ©nieur d'intÃ©gration dÃ©diÃ©</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> De 100 à 1 000+ salariés</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 1 To de stockage dédié</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Hébergement dédié ou sur mesure</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Audit de sécurité & SLA garanti</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Ingénieur d'intégration dédié</li>
               </ul>
             </div>
             <a href="#contact" class="p-btn p-btn-outline">Contacter la Direction</a>
@@ -916,13 +875,12 @@
       </div>
     </section>
 
-    <!-- PROCESSUS & PAIEMENT LOCAL -->
     <section class="section-wrap" id="paiement">
       <div class="container">
         <div class="section-head">
-          <span class="section-tag">SimplicitÃ© financiÃ¨re</span>
-          <h2 class="section-heading">Payez en Mobile Money, dÃ©ployez en 24h</h2>
-          <p class="section-subtext">Aucune carte Visa ou Mastercard internationale n'est requise. Nous privilÃ©gions les moyens de paiement directs et rapides d'Afrique centrale.</p>
+          <span class="section-tag">Simplicité financière</span>
+          <h2 class="section-heading">Payez en Mobile Money, déployez en 24h</h2>
+          <p class="section-subtext">Aucune carte Visa ou Mastercard internationale n'est requise. Nous privilégions les moyens de paiement directs et rapides d'Afrique centrale.</p>
         </div>
 
         <div class="steps-container">
@@ -934,36 +892,36 @@
           <div class="step-item">
             <div class="step-num-circle">2</div>
             <h4>Devis</h4>
-            <p>Envoi de l'offre chiffrÃ©e sous 2 Ã  4 heures.</p>
+            <p>Envoi de l'offre chiffrée sous 2 à 4 heures.</p>
           </div>
           <div class="step-item">
             <div class="step-num-circle">3</div>
-            <h4>RÃ¨glement</h4>
-            <p>Paiement sÃ©curisÃ© par Mobile Money ou Virement.</p>
+            <h4>Règlement</h4>
+            <p>Paiement sécurisé par Mobile Money ou Virement.</p>
           </div>
           <div class="step-item">
             <div class="step-num-circle">4</div>
             <h4>Activation</h4>
-            <p>CrÃ©ation immÃ©diate de votre espace et des accÃ¨s administrateur.</p>
+            <p>Création immédiate de votre espace et des accès administrateur.</p>
           </div>
           <div class="step-item">
             <div class="step-num-circle">5</div>
-            <h4>DÃ©collage</h4>
-            <p>Vos collaborateurs se connectent et commencent Ã  travailler.</p>
+            <h4>Décollage</h4>
+            <p>Vos collaborateurs se connectent et commencent à travailler.</p>
           </div>
         </div>
 
         <div class="payment-grid">
           <div class="pay-card">
             <div class="pay-head">
-              <div class="pay-icon">ðŸ“±</div>
+              <div class="pay-icon">📱</div>
               <div>
                 <h3>Mobile Money (Afrique Centrale)</h3>
-                <p style="color:var(--text-muted);font-size:0.88rem">RÃ¨glement instantanÃ© depuis votre numÃ©ro professionnel ou personnel.</p>
+                <p style="color:var(--text-muted);font-size:0.88rem">Règlement instantané depuis votre numéro professionnel ou personnel.</p>
               </div>
             </div>
             <div class="pay-tags-row">
-              <div class="pay-badge">Airtel Money<span>Gabon & RÃ©gion</span></div>
+              <div class="pay-badge">Airtel Money<span>Gabon & Région</span></div>
               <div class="pay-badge">Moov Money<span>Gabon & CEMAC</span></div>
               <div class="pay-badge">Orange Money<span>Sur demande</span></div>
             </div>
@@ -971,28 +929,27 @@
 
           <div class="pay-card">
             <div class="pay-head">
-              <div class="pay-icon">ðŸ›ï¸</div>
+              <div class="pay-icon">🏛️</div>
               <div>
                 <h3>Virement bancaire & Entreprises</h3>
                 <p style="color:var(--text-muted);font-size:0.88rem">Pour les institutions, filiales multinationales et paiements annuels.</p>
               </div>
             </div>
             <div class="pay-tags-row">
-              <div class="pay-badge">RIB & Facture NormalisÃ©e<span>Conforme OHADA</span></div>
-              <div class="pay-badge">Lien de paiement sÃ©curisÃ©<span>Pour l'international</span></div>
+              <div class="pay-badge">RIB & Facture Normalisée<span>Conforme OHADA</span></div>
+              <div class="pay-badge">Lien de paiement sécurisé<span>Pour l'international</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ASSISTANCE & FAQ -->
     <section class="section-wrap alt" id="assistance">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">Support & FAQ</span>
-          <h2 class="section-heading">Une assistance rÃ©active basÃ©e au Gabon</h2>
-          <p class="section-subtext">Un interlocuteur technique direct vous rÃ©pond sans intermÃ©diaire ni robots rÃ©pondeurs impersonnels.</p>
+          <h2 class="section-heading">Une assistance réactive basée au Gabon</h2>
+          <p class="section-subtext">Un interlocuteur technique direct vous répond sans intermédiaire ni robots répondeurs impersonnels.</p>
         </div>
 
         <div class="support-grid">
@@ -1000,26 +957,26 @@
             <h3 style="font-size:1.2rem;font-weight:800">Canaux Directs</h3>
             
             <div class="support-contact-row">
-              <span style="font-size:24px">ðŸ’¬</span>
+              <span style="font-size:24px">💬</span>
               <div>
                 <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">WHATSAPP DIRECT</div>
                 <a href="https://wa.me/24174837463" target="_blank">+241 74 83 74 63</a>
-                <div style="font-size:0.75rem;color:#34D399">RÃ©ponse moyenne &lt; 15 min</div>
+                <div style="font-size:0.75rem;color:#34D399">Réponse moyenne &lt; 15 min</div>
               </div>
             </div>
 
             <div class="support-contact-row">
-              <span style="font-size:24px">âœ‰ï¸</span>
+              <span style="font-size:24px">✉️</span>
               <div>
-                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">COURRIER Ã‰LECTRONIQUE</div>
+                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">COURRIER ÉLECTRONIQUE</div>
                 <a href="mailto:Sylvestre.it@gmail.com">Sylvestre.it@gmail.com</a>
               </div>
             </div>
 
             <div class="support-contact-row">
-              <span style="font-size:24px">ðŸ“ž</span>
+              <span style="font-size:24px">📞</span>
               <div>
-                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">LIGNE TÃ‰LÃ‰PHONIQUE</div>
+                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">LIGNE TÉLÉPHONIQUE</div>
                 <a href="tel:+24174837463">+241 074 83 74 63</a>
               </div>
             </div>
@@ -1028,41 +985,41 @@
           <div class="faq-list">
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Comment installer Relia sur les tÃ©lÃ©phones des salariÃ©s ?</span>
-                <span class="faq-arrow">â–¼</span>
+                <span>Comment installer Relia sur les téléphones des salariés ?</span>
+                <span class="faq-arrow">▼</span>
               </div>
               <div class="faq-answer">
-                Il suffit d'envoyer le lien de tÃ©lÃ©chargement APK ou de le tÃ©lÃ©charger directement depuis ce site web. L'application s'installe en quelques secondes sans configuration complexe.
+                Il suffit d'envoyer le lien de téléchargement APK ou de le télécharger directement depuis ce site web. L'application s'installe en quelques secondes sans configuration complexe.
               </div>
             </div>
 
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Nos Ã©changes et documents sont-ils protÃ©gÃ©s ?</span>
-                <span class="faq-arrow">â–¼</span>
+                <span>Nos échanges et documents sont-ils protégés ?</span>
+                <span class="faq-arrow">▼</span>
               </div>
               <div class="faq-answer">
-                Absolument. Relia intÃ¨gre un chiffrement de niveau bancaire (TLS 1.3 + AES 256) avec isolation multi-tenant stricte : aucune autre entreprise ne peut accÃ©der ou visualiser vos donnÃ©es, membres ou conversations.
+                Absolument. Relia intègre un chiffrement de niveau bancaire (TLS 1.3 + AES 256) avec isolation multi-tenant stricte : aucune autre entreprise ne peut accéder ou visualiser vos données, membres ou conversations.
               </div>
             </div>
 
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
                 <span>Les notifications et appels fonctionnent-ils en veille ?</span>
-                <span class="faq-arrow">â–¼</span>
+                <span class="faq-arrow">▼</span>
               </div>
               <div class="faq-answer">
-                Oui ! Avec la mise Ã  jour v3.23.0, Relia utilise un systÃ¨me persistant en base de donnÃ©es qui dÃ©clenche immÃ©diatement la sonnerie et la notification dÃ¨s qu'un appel ou message arrive, mÃªme si l'application Ã©tait minimisÃ©e.
+                Oui ! Avec la mise à jour v3.23.0, Relia utilise un système persistant en base de données qui déclenche immédiatement la sonnerie et la notification dès qu'un appel ou message arrive, même si l'application était minimisée.
               </div>
             </div>
 
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
                 <span>Pouvons-nous tester avant de nous engager ?</span>
-                <span class="faq-arrow">â–¼</span>
+                <span class="faq-arrow">▼</span>
               </div>
               <div class="faq-answer">
-                Oui, sur simple demande, nous vous ouvrons une pÃ©riode d'essai gratuite avec votre Ã©quipe pour vous permettre d'apprÃ©cier la rapiditÃ© et la fiabilitÃ© de Relia.
+                Oui, sur simple demande, nous vous ouvrons une période d'essai gratuite avec votre équipe pour vous permettre d'apprécier la rapidité et la fiabilité de Relia.
               </div>
             </div>
           </div>
@@ -1070,20 +1027,19 @@
       </div>
     </section>
 
-    <!-- FORMULAIRE DE CONTACT -->
     <section class="section-wrap" id="contact">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">Prise de Contact</span>
           <h2 class="section-heading">Demander un Devis ou un Essai</h2>
-          <p class="section-subtext">Remplissez ces quelques informations. Votre message est prÃ©-rempli et vous pouvez l'envoyer directement par WhatsApp ou par e-mail en 1 clic.</p>
+          <p class="section-subtext">Remplissez ces quelques informations. Votre message est pré-rempli et vous pouvez l'envoyer directement par WhatsApp ou par e-mail en 1 clic.</p>
         </div>
 
         <div class="form-box">
           <form id="quote-form" onsubmit="handleQuoteSubmit(event)">
             <div class="f-grid-2">
               <div class="f-group">
-                <label for="f_name">Votre Nom & PrÃ©nom *</label>
+                <label for="f_name">Votre Nom & Prénom *</label>
                 <input type="text" id="f_name" placeholder="Ex: Jean Paul Nguema" required>
               </div>
               <div class="f-group">
@@ -1094,32 +1050,32 @@
 
             <div class="f-grid-2">
               <div class="f-group">
-                <label for="f_phone">TÃ©lÃ©phone / WhatsApp *</label>
+                <label for="f_phone">Téléphone / WhatsApp *</label>
                 <input type="tel" id="f_phone" placeholder="+241 74..." required>
               </div>
               <div class="f-group">
-                <label for="f_users">Nombre d'utilisateurs estimÃ©</label>
+                <label for="f_users">Nombre d'utilisateurs estimé</label>
                 <select id="f_users">
-                  <option value="5-15 collaborateurs">5 Ã  15 collaborateurs</option>
-                  <option value="15-50 collaborateurs">15 Ã  50 collaborateurs</option>
-                  <option value="50-150 collaborateurs">50 Ã  150 collaborateurs</option>
+                  <option value="5-15 collaborateurs">5 à 15 collaborateurs</option>
+                  <option value="15-50 collaborateurs">15 à 50 collaborateurs</option>
+                  <option value="50-150 collaborateurs">50 à 150 collaborateurs</option>
                   <option value="Plus de 150 collaborateurs">Plus de 150 collaborateurs</option>
                 </select>
               </div>
             </div>
 
             <div class="f-group">
-              <label for="f_payment">Moyen de rÃ¨glement souhaitÃ©</label>
+              <label for="f_payment">Moyen de règlement souhaité</label>
               <select id="f_payment">
                 <option value="Mobile Money (Airtel / Moov)">Mobile Money (Airtel Money / Moov Money)</option>
                 <option value="Virement bancaire professionnel">Virement bancaire professionnel</option>
-                <option value="Ã€ discuter">Ã€ discuter</option>
+                <option value="À discuter">À discuter</option>
               </select>
             </div>
 
             <div class="f-group">
-              <label for="f_msg">Besoins spÃ©cifiques ou questions</label>
-              <textarea id="f_msg" rows="3" placeholder="Ex: Nous souhaitons remplacer WhatsApp et personnaliser l'outil Ã  nos couleurs..."></textarea>
+              <label for="f_msg">Besoins spécifiques ou questions</label>
+              <textarea id="f_msg" rows="3" placeholder="Ex: Nous souhaitons remplacer WhatsApp et personnaliser l'outil à nos couleurs..."></textarea>
             </div>
 
             <button type="submit" class="f-btn-submit">
@@ -1131,19 +1087,18 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div style="display:flex;align-items:center;gap:12px">
-          <div class="brand-icon" style="width:32px;height:32px;font-size:16px">ðŸ’¬</div>
+          <div class="brand-icon" style="width:32px;height:32px;font-size:16px">💬</div>
           <div>
             <div style="font-weight:800;color:var(--text);font-size:1.05rem">Relia</div>
-            <div style="font-size:0.75rem;color:var(--text-dim)">Ã‰ditÃ© et maintenu par <strong>Sylvestre IT</strong> Â· Libreville, Gabon</div>
+            <div style="font-size:0.75rem;color:var(--text-dim)">Édité et maintenu par <strong>Sylvestre IT</strong> · Libreville, Gabon</div>
           </div>
         </div>
 
         <div class="footer-links">
-          <a href="#telecharger">TÃ©lÃ©chargements</a>
+          <a href="#telecharger">Téléchargements</a>
           <a href="#abonnements">Abonnements</a>
           <a href="#assistance">Support</a>
           <a href="https://wa.me/24174837463" target="_blank">WhatsApp Direct</a>
@@ -1151,9 +1106,8 @@
       </div>
     </footer>
 
-  </div><!-- /layout-wrapper -->
+  </div>
 
-  <!-- Interactive Network Background Script -->
   <script>
     (function initCanvas() {
       const canvas = document.getElementById('bg-canvas');
@@ -1165,13 +1119,13 @@
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
         particles = [];
-        const count = Math.floor((width * height) / 20000);
+        const count = Math.min(80, Math.floor((width * height) / 18000));
         for (let i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.45,
-            vy: (Math.random() - 0.5) * 0.45,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
             r: Math.random() * 1.8 + 1
           });
         }
@@ -1188,19 +1142,19 @@
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(0, 229, 255, 0.6)';
+          ctx.fillStyle = 'rgba(0, 229, 255, 0.65)';
           ctx.fill();
 
           for (let j = i + 1; j < particles.length; j++) {
             const p2 = particles[j];
             const dx = p.x - p2.x, dy = p.y - p2.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 130) {
+            if (dist < 135) {
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = 'rgba(0, 229, 255, ' + (1 - dist / 130) * 0.28 + ')';
-              ctx.lineWidth = 0.65;
+              ctx.strokeStyle = 'rgba(0, 229, 255, ' + (1 - dist / 135) * 0.35 + ')';
+              ctx.lineWidth = 0.7;
               ctx.stroke();
             }
           }
@@ -1213,20 +1167,17 @@
       draw();
     })();
 
-    // Mobile Menu Toggle
     function toggleMenu() {
       const drawer = document.getElementById('mobile-drawer');
       if (drawer) drawer.classList.toggle('open');
     }
 
-    // FAQ Accordion
     function toggleFaq(el) {
       const card = el.closest('.faq-card');
       if (!card) return;
       card.classList.toggle('open');
     }
 
-    // Form submission -> Direct WhatsApp
     function handleQuoteSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('f_name').value.trim();
@@ -1237,14 +1188,14 @@
       const msg = document.getElementById('f_msg').value.trim();
 
       const text = 
-        'Bonjour Sylvestre IT, je souhaite une dÃ©monstration / un devis pour Relia :\\n\\n' +
-        'ðŸ‘¤ Contact : ' + name + '\\n' +
-        'ðŸ¢ Entreprise : ' + company + '\\n' +
-        'ðŸ“ž TÃ©lÃ©phone : ' + phone + '\\n' +
-        'ðŸ‘¥ Nombre d\\'utilisateurs : ' + users + '\\n' +
-        'ðŸ’³ Mode de paiement : ' + payment + '\\n' +
-        (msg ? 'ðŸ“ DÃ©tails : ' + msg + '\\n' : '') +
-        '\\nâ€” Demande envoyÃ©e depuis relia.workers.dev';
+        'Bonjour Sylvestre IT, je souhaite une démonstration / un devis pour Relia :\n\n' +
+        'Contact : ' + name + '\n' +
+        'Entreprise : ' + company + '\n' +
+        'Téléphone : ' + phone + '\n' +
+        'Nombre collaborateurs : ' + users + '\n' +
+        'Règlement : ' + payment + '\n' +
+        (msg ? 'Détails : ' + msg + '\n' : '') +
+        '\nDemande envoyée depuis le site officiel Relia';
 
       const url = 'https://wa.me/24174837463?text=' + encodeURIComponent(text);
       window.open(url, '_blank');
