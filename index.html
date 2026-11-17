@@ -1,0 +1,1254 @@
+﻿<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+  <title>Relia â€” Messagerie d'Entreprise SÃ©curisÃ©e Â· Afrique Centrale</title>
+  
+  <meta name="description" content="Relia est la plateforme collaborative tout-en-un pour les entreprises d'Afrique centrale : messagerie chiffrÃ©e, appels vidÃ©o HD, partage de documents et paiement direct par Mobile Money. Version 3.23.0."/>
+  <meta name="keywords" content="Relia, messagerie entreprise, collaboration, Afrique centrale, Gabon, Cameroun, Congo, Mobile Money, Airtel Money, Moov Money, visioconfÃ©rence sÃ©curisÃ©e, ISO 27001"/>
+  <meta name="author" content="Sylvestre IT"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Relia â€” La Messagerie d'Entreprise Souveraine"/>
+  <meta property="og:description" content="Canaux d'Ã©quipe, rÃ©unions vidÃ©o HD, partage de fichiers volumineux, sÃ©curitÃ© bancaire et paiement Mobile Money local. TÃ©lÃ©chargez la version 3.23.0."/>
+  <meta property="og:image" content="https://raw.githubusercontent.com/obinnasylvestre/relia-downloads/main/preview.png"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2300E5FF'/><stop offset='100%25' stop-color='%230077FE'/></linearGradient></defs><rect width='40' height='40' rx='10' fill='url(%23g)'/><path d='M12 20a8 8 0 1 1 15 4.5l2 4.5-5-1.5A8 8 0 0 1 12 20z' fill='%23070B14'/><circle cx='17' cy='19' r='1.5' fill='%2300E5FF'/><circle cx='21' cy='19' r='1.5' fill='%2300E5FF'/><circle cx='25' cy='19' r='1.5' fill='%2300E5FF'/></svg>"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070B14;
+      --bg-surface: #0C1220;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(22, 34, 61, 0.9);
+      --cyan: #00E5FF;
+      --cyan-bright: #38EFFF;
+      --cyan-glow: rgba(0, 229, 255, 0.22);
+      --blue-accent: #2563EB;
+      --emerald: #10B981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --border: rgba(0, 229, 255, 0.14);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-glow: 0 0 35px rgba(0, 229, 255, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; min-height: 100vh; }
+
+    /* Animated Canvas Background */
+    #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.45; }
+    .layout-wrapper { position: relative; z-index: 1; }
+
+    /* Navigation */
+    header.site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 11, 20, 0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    .nav-container {
+      max-width: 1240px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 1.28rem;
+    }
+    .brand-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue-accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+    }
+    .brand-tag {
+      font-size: 0.68rem; font-weight: 700; background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan); border: 1px solid var(--border); padding: 2px 7px; border-radius: 6px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .nav-menu { display: flex; align-items: center; gap: 8px; list-style: none; }
+    .nav-menu a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.92rem; font-weight: 600;
+      padding: 8px 14px; border-radius: var(--radius-sm); transition: all 0.2s ease;
+    }
+    .nav-menu a:hover { color: var(--cyan-bright); background: rgba(0, 229, 255, 0.08); }
+    .nav-actions { display: flex; align-items: center; gap: 14px; }
+    .btn-devis {
+      background: linear-gradient(135deg, var(--cyan), #00A3FF);
+      color: #030816; font-weight: 800; font-size: 0.9rem;
+      padding: 10px 20px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0, 229, 255, 0.3); transition: all 0.25s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-devis:hover {
+      transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5); filter: brightness(1.1);
+    }
+
+    /* Burger Menu Mobile */
+    .burger-btn {
+      display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 24px; padding: 4px;
+    }
+    .mobile-drawer {
+      display: none; position: fixed; top: 72px; left: 0; width: 100%; background: rgba(7, 11, 20, 0.98);
+      backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); padding: 24px; z-index: 99;
+      flex-direction: column; gap: 16px;
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer a {
+      color: var(--text); font-size: 1.05rem; font-weight: 600; text-decoration: none;
+      padding: 10px 14px; border-radius: 8px; border-left: 2px solid transparent;
+    }
+    .mobile-drawer a:hover { background: rgba(0, 229, 255, 0.08); border-left-color: var(--cyan); color: var(--cyan); }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 70px 24px 60px; max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center;
+    }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 700;
+      background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); color: #34D399;
+      margin-bottom: 16px;
+    }
+    .badge-live {
+      width: 8px; height: 8px; border-radius: 50%; background: #10B981;
+      box-shadow: 0 0 10px #10B981; animation: livePulse 2s infinite;
+    }
+    @keyframes livePulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } }
+
+    h1.hero-title {
+      font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-weight: 800; line-height: 1.14; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--cyan-bright) 20%, #60A5FA 90%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.12rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 32px; max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--cyan), #0088FF);
+      color: #030816; font-weight: 800; font-size: 1.02rem;
+      padding: 14px 28px; border-radius: 12px; text-decoration: none;
+      box-shadow: 0 6px 28px rgba(0, 229, 255, 0.35); transition: all 0.25s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-2px); box-shadow: 0 10px 35px rgba(0, 229, 255, 0.55); filter: brightness(1.1);
+    }
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.04); color: var(--text);
+      font-weight: 700; font-size: 1.02rem; padding: 14px 26px; border-radius: 12px;
+      border: 1px solid var(--border-subtle); text-decoration: none; transition: all 0.25s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-hero-secondary:hover {
+      background: rgba(0, 229, 255, 0.08); border-color: var(--cyan); color: var(--cyan);
+    }
+
+    .hero-trust-badges {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap; border-top: 1px solid var(--border-subtle);
+      padding-top: 24px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--text-muted); font-weight: 600;
+    }
+    .trust-item strong { color: var(--text); display: block; font-size: 0.95rem; }
+
+    /* Interactive Mockup Window */
+    .mockup-wrapper {
+      position: relative; perspective: 1000px;
+    }
+    .mockup-window {
+      background: #0B111E; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.12);
+      transition: transform 0.4s ease;
+    }
+    .mockup-window:hover { transform: translateY(-4px); }
+    .mockup-header {
+      background: #080D18; padding: 12px 18px; border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .window-dots { display: flex; gap: 8px; }
+    .w-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .w-red { background: #EF4444; } .w-yellow { background: #F59E0B; } .w-green { background: #10B981; }
+    .mock-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); }
+    .mock-badge-status {
+      font-size: 0.7rem; background: rgba(16, 185, 129, 0.15); color: #34D399;
+      padding: 3px 8px; border-radius: 6px; font-weight: 700;
+    }
+    .mockup-grid { display: grid; grid-template-columns: 140px 1fr; height: 320px; }
+    .mock-sidebar {
+      background: #070B14; border-right: 1px solid var(--border-subtle); padding: 16px 10px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .mock-sec { font-size: 0.68rem; text-transform: uppercase; color: var(--text-dim); font-weight: 800; margin: 8px 4px 4px; }
+    .mock-chan {
+      font-size: 0.78rem; font-weight: 600; padding: 5px 8px; border-radius: 6px;
+      color: var(--text-muted); cursor: default;
+    }
+    .mock-chan.active { background: rgba(0, 229, 255, 0.12); color: var(--cyan); border-left: 2px solid var(--cyan); }
+    .mock-chat {
+      padding: 18px; display: flex; flex-direction: column; gap: 12px; background: #0B111E; overflow: hidden;
+    }
+    .chat-msg { display: flex; gap: 10px; align-items: flex-start; }
+    .chat-avatar {
+      width: 30px; height: 30px; border-radius: 8px; font-weight: 800; font-size: 0.75rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .chat-bubble {
+      background: #141D30; border: 1px solid var(--border-subtle); padding: 8px 12px;
+      border-radius: 4px 12px 12px 12px; font-size: 0.82rem; max-width: 82%;
+    }
+    .chat-bubble.mine {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(37, 99, 235, 0.25));
+      border-color: rgba(0, 229, 255, 0.3); border-radius: 12px 4px 12px 12px; margin-left: auto; color: #FFF;
+    }
+    .chat-scan-badge {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 0.7rem; color: #34D399;
+      background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 6px; margin-top: 5px;
+    }
+    .mock-call-banner {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--cyan); border-radius: 10px; padding: 10px 14px;
+      display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--cyan-bright);
+      margin-top: auto;
+    }
+
+    /* What's New Bar (v3.23.0 Highlight) */
+    .whats-new-section {
+      max-width: 1240px; margin: 0 auto 60px; padding: 0 24px;
+    }
+    .whats-new-box {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(16, 185, 129, 0.06));
+      border: 1px solid var(--cyan); border-radius: var(--radius-lg); padding: 28px 32px;
+      box-shadow: 0 0 35px rgba(0, 229, 255, 0.08); display: flex; flex-direction: column; gap: 20px;
+    }
+    .wn-header {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .wn-title {
+      font-size: 1.22rem; font-weight: 800; color: var(--cyan-bright);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wn-badge {
+      background: var(--cyan); color: #030816; font-size: 0.72rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 6px; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .wn-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+    }
+    .wn-card {
+      background: rgba(12, 18, 32, 0.8); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 16px; display: flex; gap: 12px; align-items: flex-start;
+      transition: all 0.2s ease;
+    }
+    .wn-card:hover { border-color: var(--cyan); background: rgba(17, 28, 48, 0.9); }
+    .wn-icon {
+      width: 36px; height: 36px; border-radius: 10px; background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+    .wn-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .wn-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* Section Headers */
+    .section-wrap { padding: 80px 24px; position: relative; }
+    .section-wrap.alt { background: #0A0F1B; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .container { max-width: 1240px; margin: 0 auto; }
+    .section-head { text-align: center; max-width: 740px; margin: 0 auto 50px; }
+    .section-tag {
+      font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--cyan); margin-bottom: 10px; display: block;
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .section-subtext {
+      font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* DOWNLOAD SECTION - HIGH IMPACT */
+    .download-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+    }
+    .dl-box {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 36px 28px; text-align: center;
+      position: relative; overflow: hidden; backdrop-filter: blur(16px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .dl-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .dl-box:hover {
+      border-color: var(--cyan); transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 229, 255, 0.16); background: var(--bg-card-hover);
+    }
+    .dl-box:hover::before { opacity: 1; }
+    .dl-icon-circle {
+      width: 70px; height: 70px; border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(37, 99, 235, 0.15));
+      border: 1px solid var(--border); margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center; font-size: 32px;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.15);
+    }
+    .dl-box h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 8px; }
+    .dl-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5; }
+    .dl-pill-ver {
+      display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; font-weight: 700; color: #34D399; background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 12px; border-radius: 8px; margin-bottom: 22px;
+    }
+    .btn-download-main {
+      background: linear-gradient(135deg, var(--cyan), #0088FF);
+      color: #030816; font-weight: 800; font-size: 1rem;
+      padding: 14px 24px; border-radius: 12px; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.3); transition: all 0.25s ease;
+      margin-bottom: 16px;
+    }
+    .btn-download-main:hover {
+      filter: brightness(1.12); transform: scale(1.02); box-shadow: 0 8px 30px rgba(0, 229, 255, 0.55);
+    }
+    .dl-notice {
+      font-size: 0.76rem; color: var(--text-dim); line-height: 1.5; text-align: left;
+      background: rgba(0, 0, 0, 0.25); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-subtle);
+    }
+    .dl-notice strong { color: var(--text-muted); }
+
+    .dl-box.disabled {
+      opacity: 0.7; border-style: dashed;
+    }
+    .btn-download-ghost {
+      background: rgba(255, 255, 255, 0.05); color: var(--text-muted); font-weight: 700; font-size: 0.95rem;
+      padding: 14px 24px; border-radius: 12px; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1px solid var(--border-subtle); transition: all 0.2s ease; margin-bottom: 16px;
+    }
+    .btn-download-ghost:hover {
+      border-color: var(--cyan); color: var(--cyan); background: rgba(0, 229, 255, 0.08);
+    }
+
+    /* FEATURES GRID */
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+    }
+    .feat-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 28px; transition: all 0.25s ease;
+      position: relative; overflow: hidden;
+    }
+    .feat-card:hover {
+      border-color: var(--cyan); transform: translateY(-4px); background: var(--bg-card-hover);
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+    }
+    .feat-card.new-highlight {
+      border-color: rgba(0, 229, 255, 0.35); background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(0, 229, 255, 0.06));
+    }
+    .feat-icon-wrap {
+      width: 48px; height: 48px; border-radius: 14px; background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px;
+    }
+    .feat-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .badge-feat-new {
+      font-size: 0.62rem; font-weight: 800; background: var(--cyan); color: #030816;
+      padding: 2px 7px; border-radius: 4px; text-transform: uppercase;
+    }
+    .feat-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 30px; }
+    .pricing-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 36px 28px; position: relative;
+      display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;
+    }
+    .pricing-card.featured {
+      border-color: var(--cyan); box-shadow: 0 0 45px rgba(0, 229, 255, 0.18);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(12, 18, 32, 0.95));
+    }
+    .pricing-top-pill {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--cyan), #0099FF); color: #030816;
+      font-size: 0.72rem; font-weight: 800; padding: 4px 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .p-plan-name { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+    .p-price { font-size: 2.2rem; font-weight: 800; margin-bottom: 24px; color: var(--text); }
+    .p-features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .p-features li { font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+    .p-features li svg { color: var(--cyan); flex-shrink: 0; }
+    .p-btn {
+      width: 100%; padding: 13px; border-radius: 10px; font-weight: 800; font-size: 0.92rem;
+      text-align: center; text-decoration: none; cursor: pointer; transition: all 0.2s ease;
+    }
+    .p-btn-outline { background: transparent; border: 1px solid var(--border-subtle); color: var(--text); }
+    .p-btn-outline:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0, 229, 255, 0.06); }
+    .p-btn-fill { background: var(--cyan); color: #030816; box-shadow: 0 4px 18px rgba(0, 229, 255, 0.3); }
+    .p-btn-fill:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* HOW IT WORKS */
+    .steps-container {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
+    }
+    .step-item {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 22px 18px; text-align: center; position: relative;
+    }
+    .step-num-circle {
+      width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 229, 255, 0.15);
+      border: 1px solid var(--cyan); color: var(--cyan); font-weight: 800; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+    }
+    .step-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .step-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* PAYMENT METHODS */
+    .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .pay-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 32px;
+    }
+    .pay-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .pay-icon {
+      width: 46px; height: 46px; border-radius: 12px; background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 24px;
+    }
+    .pay-tags-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .pay-badge {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 8px 14px; font-size: 0.85rem; font-weight: 600;
+    }
+    .pay-badge span { display: block; font-size: 0.72rem; color: var(--text-dim); font-weight: 400; }
+
+    /* FAQ & ASSISTANCE */
+    .support-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; }
+    .contact-card-box {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 30px; display: flex; flex-direction: column; gap: 18px;
+    }
+    .support-contact-row {
+      display: flex; align-items: center; gap: 16px; padding: 14px;
+      background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .support-contact-row a { color: var(--cyan); text-decoration: none; font-weight: 700; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); overflow: hidden; transition: border-color 0.2s ease;
+    }
+    .faq-card.open { border-color: var(--cyan); }
+    .faq-question {
+      padding: 16px 20px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-answer {
+      padding: 0 20px 16px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; display: none;
+    }
+    .faq-card.open .faq-answer { display: block; }
+    .faq-arrow { transition: transform 0.2s ease; font-size: 0.8rem; color: var(--cyan); }
+    .faq-card.open .faq-arrow { transform: rotate(180deg); }
+
+    /* FORM */
+    .form-box {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 36px; max-width: 680px; margin: 0 auto;
+    }
+    .f-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .f-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .f-group label { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); }
+    .f-group input, .f-group select, .f-group textarea {
+      background: #090E1A; border: 1px solid var(--border-subtle); border-radius: 8px;
+      padding: 12px 14px; color: var(--text); font-family: inherit; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s ease;
+    }
+    .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--cyan); }
+    .f-btn-submit {
+      width: 100%; background: linear-gradient(135deg, var(--cyan), #0088FF);
+      color: #030816; font-weight: 800; font-size: 1rem; padding: 14px;
+      border: none; border-radius: 10px; cursor: pointer; transition: all 0.25s ease;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .f-btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4); }
+
+    /* FOOTER */
+    footer.site-footer {
+      background: #04070E; border-top: 1px solid var(--border-subtle); padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    .footer-links a:hover { color: var(--cyan); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-section { grid-template-columns: 1fr; gap: 40px; }
+      .download-grid, .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+      .steps-container { grid-template-columns: repeat(2, 1fr); }
+      .payment-grid { grid-template-columns: 1fr; }
+      .support-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .burger-btn { display: block; }
+      .f-grid-2 { grid-template-columns: 1fr; }
+      .steps-container { grid-template-columns: 1fr; }
+      .hero-section { padding: 40px 16px; }
+      .mockup-grid { grid-template-columns: 1fr; }
+      .mock-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Network Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="layout-wrapper">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="site-header">
+      <div class="nav-container">
+        <a href="#" class="brand-logo">
+          <div class="brand-icon">ðŸ’¬</div>
+          <span>Relia</span>
+          <span class="brand-tag">v3.23.0</span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#nouveautes">NouveautÃ©s</a></li>
+          <li><a href="#fonctions">Fonctions</a></li>
+          <li><a href="#telecharger">TÃ©lÃ©charger</a></li>
+          <li><a href="#abonnements">Abonnements</a></li>
+          <li><a href="#paiement">Paiement</a></li>
+          <li><a href="#assistance">Assistance</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="#contact" class="btn-devis">
+            <span>Demander un devis</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu Mobile">â˜°</button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Drawer -->
+      <div class="mobile-drawer" id="mobile-drawer">
+        <a href="#nouveautes" onclick="toggleMenu()">âœ¨ NouveautÃ©s v3.23</a>
+        <a href="#fonctions" onclick="toggleMenu()">ðŸ› ï¸ Fonctions</a>
+        <a href="#telecharger" onclick="toggleMenu()">ðŸ“¥ TÃ©lÃ©charger l'App</a>
+        <a href="#abonnements" onclick="toggleMenu()">ðŸ’¼ Abonnements & Tarifs</a>
+        <a href="#paiement" onclick="toggleMenu()">ðŸ’³ Paiement Mobile Money</a>
+        <a href="#assistance" onclick="toggleMenu()">ðŸ“ž Assistance & FAQ</a>
+        <a href="#contact" onclick="toggleMenu()" style="color:var(--cyan);font-weight:700">ðŸ’¬ Contact direct WhatsApp</a>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-left">
+        <div class="badge-pill">
+          <div class="badge-live"></div>
+          <span>Mise Ã  jour v3.23.0 disponible Â· Novembre 2026</span>
+        </div>
+
+        <h1 class="hero-title">
+          La messagerie d'entreprise <br/>
+          <span class="highlight">pensÃ©e pour vos Ã©quipes</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Canaux d'Ã©quipe, discussions privÃ©es, rÃ©unions vidÃ©o HD et partage de gros fichiers dans un espace 100% sÃ©curisÃ© et souverain. Licences flexibles et paiement direct par <strong>Mobile Money</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#telecharger" class="btn-hero-primary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>TÃ©lÃ©charger Relia</span>
+          </a>
+          <a href="#abonnements" class="btn-hero-secondary">
+            <span>Voir les forfaits</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-badges">
+          <div class="trust-item">
+            <span style="font-size:22px">ðŸ–¥ï¸</span>
+            <div><strong>Windows 10 / 11</strong>.exe certifiÃ©</div>
+          </div>
+          <div class="trust-item">
+            <span style="font-size:22px">ðŸ“±</span>
+            <div><strong>Android</strong>TÃ©lÃ©phones & Tablettes</div>
+          </div>
+          <div class="trust-item">
+            <span style="font-size:22px">ðŸ’³</span>
+            <div><strong>Mobile Money</strong>Airtel & Moov</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column : Realistic Animated Window -->
+      <div class="mockup-wrapper">
+        <div class="mockup-window">
+          <div class="mockup-header">
+            <div class="window-dots">
+              <span class="w-dot w-red"></span>
+              <span class="w-dot w-yellow"></span>
+              <span class="w-dot w-green"></span>
+            </div>
+            <div class="mock-title">Relia Entreprise Â· #gÃ©nÃ©ral</div>
+            <div class="mock-badge-status">En ligne</div>
+          </div>
+
+          <div class="mockup-grid">
+            <div class="mock-sidebar">
+              <div class="mock-sec">Canaux</div>
+              <div class="mock-chan active"># gÃ©nÃ©ral</div>
+              <div class="mock-chan"># direction</div>
+              <div class="mock-chan"># comptabilitÃ©</div>
+              <div class="mock-chan"># projets-2026</div>
+              <div class="mock-sec">Directs</div>
+              <div class="mock-chan">â— Jules (Admin)</div>
+              <div class="mock-chan">â— Sandra</div>
+            </div>
+
+            <div class="mock-chat">
+              <div class="chat-msg">
+                <div class="chat-avatar" style="background:#10B981;color:#042F2E">JD</div>
+                <div class="chat-bubble">
+                  <strong>Jules D.</strong><br/>
+                  Bonjour Ã  tous ! La rÃ©union budgÃ©taire commence dans 5 minutes.
+                </div>
+              </div>
+
+              <div class="chat-msg" style="flex-direction:row-reverse">
+                <div class="chat-avatar" style="background:var(--cyan);color:#082F49">VOUS</div>
+                <div class="chat-bubble mine">
+                  Parfait, voici le rapport financier consolidÃ© pour validation :
+                  <div class="chat-scan-badge">ðŸ›¡ï¸ Lien sÃ©curisÃ© & scannÃ© ISO 27001</div>
+                </div>
+              </div>
+
+              <div class="chat-msg">
+                <div class="chat-avatar" style="background:#8B5CF6;color:#2E1065">SK</div>
+                <div class="chat-bubble">
+                  Bien reÃ§u ! Les chiffres sont impeccables ðŸ‘
+                </div>
+              </div>
+
+              <div class="mock-call-banner">
+                <span>ðŸ“¹ RÃ©union vidÃ©o en cours (4 participants)</span>
+                <span style="font-size:0.75rem;background:var(--cyan);color:#030816;padding:3px 8px;border-radius:6px">Rejoindre</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOUVEAUTÃ‰S v3.23.0 -->
+    <section class="whats-new-section" id="nouveautes">
+      <div class="whats-new-box">
+        <div class="wn-header">
+          <div class="wn-title">
+            <span>âœ¨ NouveautÃ©s de la Version v3.23.0</span>
+            <span class="wn-badge">DerniÃ¨re mise Ã  jour</span>
+          </div>
+          <span style="color:var(--text-muted);font-size:0.85rem">DÃ©ploiement stable Novembre 2026</span>
+        </div>
+
+        <div class="wn-grid">
+          <div class="wn-card">
+            <div class="wn-icon">ðŸ””</div>
+            <div>
+              <h4>Notifications Push RÃ©elles</h4>
+              <p>Recevez les alertes de messages et d'appels mÃªme lorsque l'application est en veille ou fermÃ©e en arriÃ¨re-plan.</p>
+            </div>
+          </div>
+
+          <div class="wn-card">
+            <div class="wn-icon">ðŸ“ž</div>
+            <div>
+              <h4>Appels WebRTC Ultrarapides</h4>
+              <p>Fin des appels manquÃ©s. DÃ©tection persistante dans la base de donnÃ©es et sonnerie instantanÃ©e des correspondants.</p>
+            </div>
+          </div>
+
+          <div class="wn-card">
+            <div class="wn-icon">ðŸ›¡ï¸</div>
+            <div>
+              <h4>Bouclier Anti-Malware SafeLink</h4>
+              <p>Analyse proactive des liens URL et des documents Ã©changÃ©s avant tout clic pour protÃ©ger le parc informatique.</p>
+            </div>
+          </div>
+
+          <div class="wn-card">
+            <div class="wn-icon">ðŸ”’</div>
+            <div>
+              <h4>Cloisonnement ISO 27001</h4>
+              <p>Ã‰tanchÃ©itÃ© totale entre donnÃ©es d'entreprises distinctes et protection rigoureuse des comptes personnels.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÃ‰LÃ‰CHARGEMENT SECTION (CENTRE D'ACTION) -->
+    <section class="section-wrap alt" id="telecharger">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">TÃ©lÃ©chargement Officiel</span>
+          <h2 class="section-heading">Installez Relia en quelques secondes</h2>
+          <p class="section-subtext">TÃ©lÃ©chargez la version native adaptÃ©e Ã  votre Ã©quipement. Vos donnÃ©es sont synchronisÃ©es instantanÃ©ment entre votre PC et votre tÃ©lÃ©phone.</p>
+        </div>
+
+        <div class="download-grid">
+          <!-- Windows Card -->
+          <div class="dl-box">
+            <div>
+              <div class="dl-icon-circle">ðŸ–¥ï¸</div>
+              <h3>Windows PC</h3>
+              <p>Pour ordinateurs portables et fixes sous Windows 10 et Windows 11 (64-bit).</p>
+              <div class="dl-pill-ver">Version 3.23.0 Â· Setup 90 Mo</div>
+            </div>
+
+            <div>
+              <a href="https://github.com/obinnasylvestre/relia-downloads/releases/latest/download/Relia-Setup.exe" class="btn-download-main">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>TÃ©lÃ©charger l'Installateur .exe</span>
+              </a>
+              <div class="dl-notice">
+                <strong>Conseil Windows :</strong> Si l'Ã©cran bleu <em>Windows SmartScreen</em> apparaÃ®t, cliquez sur <em>Â« Informations complÃ©mentaires Â»</em> puis sur <em>Â« ExÃ©cuter quand mÃªme Â»</em>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Android Card -->
+          <div class="dl-box">
+            <div>
+              <div class="dl-icon-circle">ðŸ“±</div>
+              <h3>Android Mobile</h3>
+              <p>Smartphones et tablettes Android (Samsung, Xiaomi, Tecno, Infinix, etc. Android 8 Ã  15+).</p>
+              <div class="dl-pill-ver">Version 3.23.0 Â· APK 5.1 Mo</div>
+            </div>
+
+            <div>
+              <a href="https://github.com/obinnasylvestre/relia-downloads/releases/latest/download/Relia.apk" class="btn-download-main">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>TÃ©lÃ©charger l'APK Android</span>
+              </a>
+              <div class="dl-notice">
+                <strong>Conseil Android :</strong> Si votre navigateur demande confirmation, appuyez sur <em>Â« TÃ©lÃ©charger quand mÃªme Â»</em> puis ouvrez le fichier pour lancer l'installation.
+              </div>
+            </div>
+          </div>
+
+          <!-- macOS / iOS -->
+          <div class="dl-box disabled">
+            <div>
+              <div class="dl-icon-circle" style="filter:grayscale(1);opacity:0.6">ðŸ</div>
+              <h3>macOS & iOS</h3>
+              <p>Versions pour MacBook, iMac, iPhone et iPad actuellement en prÃ©paration finale.</p>
+              <div class="dl-pill-ver" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border-color:var(--border-subtle)">BientÃ´t disponible</div>
+            </div>
+
+            <div>
+              <a href="#contact" class="btn-download-ghost">
+                <span>ÃŠtre informÃ© du lancement</span>
+              </a>
+              <div class="dl-notice">
+                Vous pouvez d'ores et dÃ©jÃ  rÃ©server un accÃ¨s anticipÃ© pour votre entreprise via notre formulaire.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÃ‰S COMPLÃˆTES -->
+    <section class="section-wrap" id="fonctions">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Plateforme Collaborative</span>
+          <h2 class="section-heading">Une suite professionnelle taillÃ©e pour la performance</h2>
+          <p class="section-subtext">Tout ce dont votre organisation a besoin pour remplacer les groupes WhatsApp informels par un outil cadrÃ©, sÃ©curisÃ© et valorisant.</p>
+        </div>
+
+        <div class="feat-grid">
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸ¢</div>
+            <h3>Ã‰quipes & Canaux structurÃ©s</h3>
+            <p>SÃ©parez vos projets, vos filiales et vos services dans des canaux publics ou privÃ©s protÃ©gÃ©s.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸ’¬</div>
+            <h3>Discussions privÃ©es & Fils</h3>
+            <p>Ã‰changez en direct avec vos collÃ¨gues avec statuts de prÃ©sence en ligne et accusÃ©s de rÃ©ception.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸ“¹</div>
+            <h3>VisioconfÃ©rence & Partage d'Ã©cran</h3>
+            <p>RÃ©unions audio et vidÃ©o HD en 1 clic sans limite de durÃ©e, intÃ©grÃ©es directement aux discussions.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸ“</div>
+            <h3>Transfert de gros fichiers</h3>
+            <p>Partagez vos PDF, tableurs Excel et dossiers par glisser-dÃ©poser avec des liens sÃ©curisÃ©s Ã  expiration.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸ”</div>
+            <h3>Recherche instantanÃ©e Ctrl+K</h3>
+            <p>Retrouvez n'importe quelle dÃ©cision, document ou message en tapant quelques lettres.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon-wrap">ðŸŽ¨</div>
+            <h3>Personnalisation Marque Blanche</h3>
+            <p>Votre logo, les couleurs officielles de votre entreprise et un fond personnalisÃ© pour vos salariÃ©s.</p>
+          </div>
+
+          <div class="feat-card new-highlight">
+            <div class="feat-icon-wrap">ðŸ””</div>
+            <h3>Notifications Push <span class="badge-feat-new">Nouveau</span></h3>
+            <p>SystÃ¨me de rÃ©veil en arriÃ¨re-plan sous Android et Windows pour ne jamais manquer une alerte client.</p>
+          </div>
+
+          <div class="feat-card new-highlight">
+            <div class="feat-icon-wrap">ðŸ›¡ï¸</div>
+            <h3>Protection SafeLink <span class="badge-feat-new">Nouveau</span></h3>
+            <p>Filtrage proactif contre le phishing, les faux ordres de virement et les liens malveillants.</p>
+          </div>
+
+          <div class="feat-card new-highlight">
+            <div class="feat-icon-wrap">ðŸ¤</div>
+            <h3>RÃ©actions & Statuts Pro <span class="badge-feat-new">Nouveau</span></h3>
+            <p>Partagez vos dÃ©placements et disponibilitÃ©s via des statuts 24h avec rÃ©actions d'Ã©quipe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABONNEMENTS / FORFAITS -->
+    <section class="section-wrap alt" id="abonnements">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Tarifs clairs & adaptÃ©s</span>
+          <h2 class="section-heading">Des licences souples, sans engagement bancaire Ã©tranger</h2>
+          <p class="section-subtext">Payez uniquement pour les membres actifs de votre structure. Ajustez le nombre de comptes selon vos embauches.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div>
+              <div class="p-plan-name">Starter</div>
+              <div class="p-price">Sur Devis</div>
+              <ul class="p-features">
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'Ã  10 collaborateurs</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 15 Go de stockage d'Ã©quipe</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Canaux, DM & VisioconfÃ©rence</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Console d'administration</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Assistance technique locale</li>
+              </ul>
+            </div>
+            <a href="#contact" class="p-btn p-btn-outline">Demander pour Starter</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pricing-top-pill">â­ RecommandÃ© Entreprise</div>
+            <div>
+              <div class="p-plan-name">Business Pro</div>
+              <div class="p-price">Sur Devis</div>
+              <ul class="p-features">
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jusqu'Ã  100 collaborateurs</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 150 Go de stockage cloud sÃ©curisÃ©</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> VisioconfÃ©rence illimitÃ©e</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Personnalisation du logo & charte</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Support prioritaire WhatsApp & TÃ©lÃ©phone</li>
+              </ul>
+            </div>
+            <a href="#contact" class="p-btn p-btn-fill">Choisir Business Pro</a>
+          </div>
+
+          <div class="pricing-card">
+            <div>
+              <div class="p-plan-name">Entreprise & Groupe</div>
+              <div class="p-price">Sur Mesure</div>
+              <ul class="p-features">
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> De 100 Ã  1 000+ salariÃ©s</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 1 To de stockage dÃ©diÃ©</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> HÃ©bergement dÃ©diÃ© ou sur mesure</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Audit de sÃ©curitÃ© & SLA garanti</li>
+                <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> IngÃ©nieur d'intÃ©gration dÃ©diÃ©</li>
+              </ul>
+            </div>
+            <a href="#contact" class="p-btn p-btn-outline">Contacter la Direction</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSUS & PAIEMENT LOCAL -->
+    <section class="section-wrap" id="paiement">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">SimplicitÃ© financiÃ¨re</span>
+          <h2 class="section-heading">Payez en Mobile Money, dÃ©ployez en 24h</h2>
+          <p class="section-subtext">Aucune carte Visa ou Mastercard internationale n'est requise. Nous privilÃ©gions les moyens de paiement directs et rapides d'Afrique centrale.</p>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-num-circle">1</div>
+            <h4>Contact</h4>
+            <p>Expression de votre besoin en nombre d'utilisateurs.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">2</div>
+            <h4>Devis</h4>
+            <p>Envoi de l'offre chiffrÃ©e sous 2 Ã  4 heures.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">3</div>
+            <h4>RÃ¨glement</h4>
+            <p>Paiement sÃ©curisÃ© par Mobile Money ou Virement.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">4</div>
+            <h4>Activation</h4>
+            <p>CrÃ©ation immÃ©diate de votre espace et des accÃ¨s administrateur.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">5</div>
+            <h4>DÃ©collage</h4>
+            <p>Vos collaborateurs se connectent et commencent Ã  travailler.</p>
+          </div>
+        </div>
+
+        <div class="payment-grid">
+          <div class="pay-card">
+            <div class="pay-head">
+              <div class="pay-icon">ðŸ“±</div>
+              <div>
+                <h3>Mobile Money (Afrique Centrale)</h3>
+                <p style="color:var(--text-muted);font-size:0.88rem">RÃ¨glement instantanÃ© depuis votre numÃ©ro professionnel ou personnel.</p>
+              </div>
+            </div>
+            <div class="pay-tags-row">
+              <div class="pay-badge">Airtel Money<span>Gabon & RÃ©gion</span></div>
+              <div class="pay-badge">Moov Money<span>Gabon & CEMAC</span></div>
+              <div class="pay-badge">Orange Money<span>Sur demande</span></div>
+            </div>
+          </div>
+
+          <div class="pay-card">
+            <div class="pay-head">
+              <div class="pay-icon">ðŸ›ï¸</div>
+              <div>
+                <h3>Virement bancaire & Entreprises</h3>
+                <p style="color:var(--text-muted);font-size:0.88rem">Pour les institutions, filiales multinationales et paiements annuels.</p>
+              </div>
+            </div>
+            <div class="pay-tags-row">
+              <div class="pay-badge">RIB & Facture NormalisÃ©e<span>Conforme OHADA</span></div>
+              <div class="pay-badge">Lien de paiement sÃ©curisÃ©<span>Pour l'international</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSISTANCE & FAQ -->
+    <section class="section-wrap alt" id="assistance">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Support & FAQ</span>
+          <h2 class="section-heading">Une assistance rÃ©active basÃ©e au Gabon</h2>
+          <p class="section-subtext">Un interlocuteur technique direct vous rÃ©pond sans intermÃ©diaire ni robots rÃ©pondeurs impersonnels.</p>
+        </div>
+
+        <div class="support-grid">
+          <div class="contact-card-box">
+            <h3 style="font-size:1.2rem;font-weight:800">Canaux Directs</h3>
+            
+            <div class="support-contact-row">
+              <span style="font-size:24px">ðŸ’¬</span>
+              <div>
+                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">WHATSAPP DIRECT</div>
+                <a href="https://wa.me/24174837463" target="_blank">+241 74 83 74 63</a>
+                <div style="font-size:0.75rem;color:#34D399">RÃ©ponse moyenne &lt; 15 min</div>
+              </div>
+            </div>
+
+            <div class="support-contact-row">
+              <span style="font-size:24px">âœ‰ï¸</span>
+              <div>
+                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">COURRIER Ã‰LECTRONIQUE</div>
+                <a href="mailto:Sylvestre.it@gmail.com">Sylvestre.it@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="support-contact-row">
+              <span style="font-size:24px">ðŸ“ž</span>
+              <div>
+                <div style="font-size:0.75rem;color:var(--text-dim);font-weight:700">LIGNE TÃ‰LÃ‰PHONIQUE</div>
+                <a href="tel:+24174837463">+241 074 83 74 63</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Comment installer Relia sur les tÃ©lÃ©phones des salariÃ©s ?</span>
+                <span class="faq-arrow">â–¼</span>
+              </div>
+              <div class="faq-answer">
+                Il suffit d'envoyer le lien de tÃ©lÃ©chargement APK ou de le tÃ©lÃ©charger directement depuis ce site web. L'application s'installe en quelques secondes sans configuration complexe.
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Nos Ã©changes et documents sont-ils protÃ©gÃ©s ?</span>
+                <span class="faq-arrow">â–¼</span>
+              </div>
+              <div class="faq-answer">
+                Absolument. Relia intÃ¨gre un chiffrement de niveau bancaire (TLS 1.3 + AES 256) avec isolation multi-tenant stricte : aucune autre entreprise ne peut accÃ©der ou visualiser vos donnÃ©es, membres ou conversations.
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Les notifications et appels fonctionnent-ils en veille ?</span>
+                <span class="faq-arrow">â–¼</span>
+              </div>
+              <div class="faq-answer">
+                Oui ! Avec la mise Ã  jour v3.23.0, Relia utilise un systÃ¨me persistant en base de donnÃ©es qui dÃ©clenche immÃ©diatement la sonnerie et la notification dÃ¨s qu'un appel ou message arrive, mÃªme si l'application Ã©tait minimisÃ©e.
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Pouvons-nous tester avant de nous engager ?</span>
+                <span class="faq-arrow">â–¼</span>
+              </div>
+              <div class="faq-answer">
+                Oui, sur simple demande, nous vous ouvrons une pÃ©riode d'essai gratuite avec votre Ã©quipe pour vous permettre d'apprÃ©cier la rapiditÃ© et la fiabilitÃ© de Relia.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONTACT -->
+    <section class="section-wrap" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Prise de Contact</span>
+          <h2 class="section-heading">Demander un Devis ou un Essai</h2>
+          <p class="section-subtext">Remplissez ces quelques informations. Votre message est prÃ©-rempli et vous pouvez l'envoyer directement par WhatsApp ou par e-mail en 1 clic.</p>
+        </div>
+
+        <div class="form-box">
+          <form id="quote-form" onsubmit="handleQuoteSubmit(event)">
+            <div class="f-grid-2">
+              <div class="f-group">
+                <label for="f_name">Votre Nom & PrÃ©nom *</label>
+                <input type="text" id="f_name" placeholder="Ex: Jean Paul Nguema" required>
+              </div>
+              <div class="f-group">
+                <label for="f_company">Nom de votre Entreprise *</label>
+                <input type="text" id="f_company" placeholder="Ex: Groupe BTP Gabon" required>
+              </div>
+            </div>
+
+            <div class="f-grid-2">
+              <div class="f-group">
+                <label for="f_phone">TÃ©lÃ©phone / WhatsApp *</label>
+                <input type="tel" id="f_phone" placeholder="+241 74..." required>
+              </div>
+              <div class="f-group">
+                <label for="f_users">Nombre d'utilisateurs estimÃ©</label>
+                <select id="f_users">
+                  <option value="5-15 collaborateurs">5 Ã  15 collaborateurs</option>
+                  <option value="15-50 collaborateurs">15 Ã  50 collaborateurs</option>
+                  <option value="50-150 collaborateurs">50 Ã  150 collaborateurs</option>
+                  <option value="Plus de 150 collaborateurs">Plus de 150 collaborateurs</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="f-group">
+              <label for="f_payment">Moyen de rÃ¨glement souhaitÃ©</label>
+              <select id="f_payment">
+                <option value="Mobile Money (Airtel / Moov)">Mobile Money (Airtel Money / Moov Money)</option>
+                <option value="Virement bancaire professionnel">Virement bancaire professionnel</option>
+                <option value="Ã€ discuter">Ã€ discuter</option>
+              </select>
+            </div>
+
+            <div class="f-group">
+              <label for="f_msg">Besoins spÃ©cifiques ou questions</label>
+              <textarea id="f_msg" rows="3" placeholder="Ex: Nous souhaitons remplacer WhatsApp et personnaliser l'outil Ã  nos couleurs..."></textarea>
+            </div>
+
+            <button type="submit" class="f-btn-submit">
+              <span>Envoyer ma demande via WhatsApp</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="brand-icon" style="width:32px;height:32px;font-size:16px">ðŸ’¬</div>
+          <div>
+            <div style="font-weight:800;color:var(--text);font-size:1.05rem">Relia</div>
+            <div style="font-size:0.75rem;color:var(--text-dim)">Ã‰ditÃ© et maintenu par <strong>Sylvestre IT</strong> Â· Libreville, Gabon</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#telecharger">TÃ©lÃ©chargements</a>
+          <a href="#abonnements">Abonnements</a>
+          <a href="#assistance">Support</a>
+          <a href="https://wa.me/24174837463" target="_blank">WhatsApp Direct</a>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /layout-wrapper -->
+
+  <!-- Interactive Network Background Script -->
+  <script>
+    (function initCanvas() {
+      const canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height, particles = [];
+
+      function onResize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        particles = [];
+        const count = Math.floor((width * height) / 20000);
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.45,
+            vy: (Math.random() - 0.5) * 0.45,
+            r: Math.random() * 1.8 + 1
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 229, 255, 0.6)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x, dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = 'rgba(0, 229, 255, ' + (1 - dist / 130) * 0.28 + ')';
+              ctx.lineWidth = 0.65;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', onResize);
+      onResize();
+      draw();
+    })();
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+
+    // FAQ Accordion
+    function toggleFaq(el) {
+      const card = el.closest('.faq-card');
+      if (!card) return;
+      card.classList.toggle('open');
+    }
+
+    // Form submission -> Direct WhatsApp
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('f_name').value.trim();
+      const company = document.getElementById('f_company').value.trim();
+      const phone = document.getElementById('f_phone').value.trim();
+      const users = document.getElementById('f_users').value;
+      const payment = document.getElementById('f_payment').value;
+      const msg = document.getElementById('f_msg').value.trim();
+
+      const text = 
+        'Bonjour Sylvestre IT, je souhaite une dÃ©monstration / un devis pour Relia :\\n\\n' +
+        'ðŸ‘¤ Contact : ' + name + '\\n' +
+        'ðŸ¢ Entreprise : ' + company + '\\n' +
+        'ðŸ“ž TÃ©lÃ©phone : ' + phone + '\\n' +
+        'ðŸ‘¥ Nombre d\\'utilisateurs : ' + users + '\\n' +
+        'ðŸ’³ Mode de paiement : ' + payment + '\\n' +
+        (msg ? 'ðŸ“ DÃ©tails : ' + msg + '\\n' : '') +
+        '\\nâ€” Demande envoyÃ©e depuis relia.workers.dev';
+
+      const url = 'https://wa.me/24174837463?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
